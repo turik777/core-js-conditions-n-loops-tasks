@@ -385,8 +385,20 @@ function rotateMatrix(matrix) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const sorted = arr;
+  for (let i = 1; i < arr.length; i += 1) {
+    const value = arr[i];
+    for (let j = i - 1; j >= 0; j -= 1) {
+      if (value < sorted[j]) {
+        sorted[j + 1] = sorted[j];
+        sorted[j] = value;
+      } else {
+        break;
+      }
+    }
+  }
+  return sorted;
 }
 
 /**
